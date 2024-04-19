@@ -1,7 +1,7 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
 
-	import LoremIpsum from './LoremIpsum.svelte'
+import LoremIpsum from './LoremIpsum.svelte'
 
 	import Introduction from './Introduction.svelte'
 
@@ -13,15 +13,15 @@
 // le texte des boites
 	
   let stepsData = [
-    { "text": "Les petites entreprises ont encore peu recours ‡ l'intelligence artificielle pour les aider dans les compÈtences Ècrites et parlÈes. <mark style='background-color: #900C3F; color:white; padding: 2px; border-radius: 5px;'><strong>En mauve</strong></mark>, on voit que <mark style='background-color: #900C3F; color:white; padding: 2px; border-radius: 5px;'><strong>3 ‡ 6%</strong></mark> des entreprises de 10 employÈs et plus l'utilisaient pour cette fonction en 2023.</strong></mark>" },
-    { "text": "En revanche, beaucoup plus de grosses entreprises belges ont recours ‡ l'IA. On voit <mark style='background-color: #dcb233 ; color:white; padding: 2px; border-radius: 5px;'><strong> en jaune </strong></mark> que <mark style='background-color: #dcb233 ; color:white; padding: 2px; border-radius: 5px;'><strong>16 ‡ 23% </strong></mark>des entreprises de 250 employÈs et plus les utilisent pour les aider dans les t‚ches Ècrites ou parlÈes." },
-    { "text": "La tendance se confirme pour d'autres fonctions. Les petites entreprises utilisent moins l'IA pour l'automatisation que pour les fonctions Ècrites : <mark style='background-color: #900C3F; color:white; padding: 2px; border-radius: 5px;'><strong>entre 2 et 6%.</strong></mark> En revanche, <mark style='background-color: #dcb233 ; color:white; padding: 2px; border-radius: 5px;'><strong>presque 30% grosses entreprises</strong></mark> utilisent l'IA pour le flux de travail ou la prise de dÈcision.  " },
-		{ "text": "Automatiser <mark style='background-color: #008000 ; color:white; padding: 2px; border-radius: 5px;'><strong>le flux de travail</strong></mark> c'est utiliser la technologie pour simplifier les t‚ches et les activitÈs dans une entreprise. Aider ‡ la <mark style='background-color: #008000 ; color:white; padding: 2px; border-radius: 5px;'><strong>prise de dÈcision</strong></mark> au travail c'est renforcer les capacitÈs humaines, en analysant les donnÈes, en prÈvoyant les tendances, en simplifiant les processus." },
-		{ "text": "<mark style='background-color: #008000 ; color:white; padding: 2px; border-radius: 5px;'><strong>L'apprentissage automatique</strong></mark> est une branche de lintelligence artificielle. Son objectif est qu'une machine soit capable de penser et dapprendre par elle-mÍme gr‚ce ‡ des donnÈes et des algorithmes. Presque <mark style='background-color: #008000 ; color:white; padding: 2px; border-radius: 5px;'><strong>30% des grosses entreprises belges</strong></mark> l'utilisent." },
+    { "text": "Les petites entreprises ont encore peu recours √† l'intelligence artificielle pour les aider dans les comp√©tences √©crites et parl√©es. <mark style='background-color: #900C3F; color:white; padding: 2px; border-radius: 5px;'><strong>En mauve</strong></mark>, on voit que <mark style='background-color: #900C3F; color:white; padding: 2px; border-radius: 5px;'><strong>3 √† 6%</strong></mark> des entreprises de 10 employ√©s et plus l'utilisaient pour cette fonction en 2023.</strong></mark>" },
+    { "text": "En revanche, beaucoup plus de grosses entreprises belges ont recours √† l'IA. On voit <mark style='background-color: #dcb233 ; color:white; padding: 2px; border-radius: 5px;'><strong> en jaune </strong></mark> que <mark style='background-color: #dcb233 ; color:white; padding: 2px; border-radius: 5px;'><strong>16 √† 23% </strong></mark>des entreprises de 250 employ√©s et plus les utilisent pour les aider dans les t√¢ches √©crites ou parl√©es." },
+    { "text": "La tendance se confirme pour d'autres fonctions. Les petites entreprises utilisent moins l'IA pour l'automatisation que pour les fonctions √©crites : <mark style='background-color: #900C3F; color:white; padding: 2px; border-radius: 5px;'><strong>entre 2 et 6%.</strong></mark> En revanche, <mark style='background-color: #dcb233 ; color:white; padding: 2px; border-radius: 5px;'><strong>presque 30% grosses entreprises</strong></mark> utilisent l'IA pour le flux de travail ou la prise de d√©cision.  " },
+		{ "text": "Automatiser <mark style='background-color: #008000 ; color:white; padding: 2px; border-radius: 5px;'><strong>le flux de travail</strong></mark> c'est utiliser la technologie pour simplifier les t√¢ches et les activit√©s dans une entreprise. Aider √† la <mark style='background-color: #008000 ; color:white; padding: 2px; border-radius: 5px;'><strong>prise de d√©cision</strong></mark> au travail c'est renforcer les capacit√©s humaines, en analysant les donn√©es, en pr√©voyant les tendances, en simplifiant les processus." },
+		{ "text": "<mark style='background-color: #008000 ; color:white; padding: 2px; border-radius: 5px;'><strong>L'apprentissage automatique</strong></mark> est une branche de lintelligence artificielle. Son objectif est qu'une machine soit capable de penser et dapprendre par elle-m√™me gr√¢ce √† des donn√©es et des algorithmes. Presque <mark style='background-color: #008000 ; color:white; padding: 2px; border-radius: 5px;'><strong>30% des grosses entreprises belges</strong></mark> l'utilisent." },
   ];
 
-	// Le "moteur" du scrollytelling qui utilise l'Intersection Observer API (en gros, le code observe ce qu'il y a ‡ l'Ècran)
-	// Áa on ne touche pas sinon tout se casse !
+	// Le "moteur" du scrollytelling qui utilise l'Intersection Observer API (en gros, le code observe ce qu'il y a √† l'√©cran)
+	// √ßa on ne touche pas sinon tout se casse !
 
   onMount(() => {
     observer = new IntersectionObserver((entries) => {
@@ -43,7 +43,7 @@
   });
 </script>
 
-<h1>¿ quel point les entreprises belges utilisent-elles l'IA ?</h1>
+<h1>√Ä quel point les entreprises belges utilisent-elles l'IA ?</h1>
 
 <Introduction/>
 
@@ -75,9 +75,9 @@
 <style>
 
 	/* Ici les valeurs pour l'ensemble de la page > 
-	peut nÈcessiter des modifs de couleurs dans Flourish 
+	peut n√©cessiter des modifs de couleurs dans Flourish 
 	pour s'assurer que le graphe soit tjs bien visible (titre de graphique noir sur
-	fond de page noir,Áa ne se voit pas bien...*/
+	fond de page noir,√ßa ne se voit pas bien...*/
 
 	:global(body) {
     background-color: #312c60; 
@@ -142,7 +142,7 @@
     margin: auto;
   }
 
-	/* Pour adapter la vue en mobile: steps centrÈes par dessus le graphique */
+	/* Pour adapter la vue en mobile: steps centr√©es par dessus le graphique */
 
   @media screen and (max-width: 768px) {
     .section-container {
